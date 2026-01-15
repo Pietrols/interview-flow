@@ -35,7 +35,7 @@ your repo access and to practice PR'ing with your team *before* you start
 coding!
 
 - Ogechi Ogharandukun #1: [GitHub](https://github.com/Mide02-Project)) / [LinkedIn][(http://www.linkedin.com/in/Ogechi-Ogharandukun)]
-- Teammate name #2: [GitHub](https://github.com/ghaccountname) / [LinkedIn](https://linkedin.com/in/liaccountname)
+- Peter Kabamba #2: [GitHub](https://github.com/Pietrols) / [LinkedIn](linkedin.com/in/peter-kabamba-959a061b9)
 
    ...
 - Teammate name #n: [GitHub](https://github.com/ghaccountname) / [LinkedIn](https://linkedin.com/in/liaccountname)
