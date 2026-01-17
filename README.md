@@ -37,6 +37,7 @@ coding!
 - Ogechi Ogharandukun #1: [GitHub](https://github.com/Mide02-Project)) / [LinkedIn][(http://www.linkedin.com/in/Ogechi-Ogharandukun)]
 - Peter Kabamba #2: [GitHub](https://github.com/Pietrols) / [LinkedIn](linkedin.com/in/peter-kabamba-959a061b9)
 - Lawrence Narh-Lawson #3: [GitHub](https://github.com/lawlawson) / [LinkedIn](https://www.linkedin.com/in/lawlawson/)
+- Eleazer Abbey #4: [GitHub](https://github.com/abbey-eleazer) / [LinkedIn](https://www.linkedin.com/in/eleazer-abbey/)
 
    ...
 - Teammate name #n: [GitHub](https://github.com/ghaccountname) / [LinkedIn](https://linkedin.com/in/liaccountname)
