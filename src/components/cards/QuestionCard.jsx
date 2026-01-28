@@ -1,4 +1,10 @@
-function QuestionCard({ question, questionNumber, totalQuestions }) {
+function QuestionCard({
+  question,
+  questionNumber,
+  totalQuestions,
+  selectedAnswer, // Added this prop
+  onAnswerSelect, // Added this prop
+}) {
   return (
     <div className="bg-white rounded-lg shadow-lg p-6 md:p-8 max-w-3xl mx-auto">
       {/* Question Header */}
@@ -13,15 +19,34 @@ function QuestionCard({ question, questionNumber, totalQuestions }) {
 
       {/* Answer Options */}
       <div className="space-y-3">
-        {Object.entries(question.options).map(([letter, text]) => (
-          <div
-            key={letter}
-            className="flex items-start p-4 rounded-lg border border-emarald-200 hover:border-emerald-600 cursor-pointer  hover:scale-101 transition-transform duration-300"
-          >
-            <span className="font-semibold text-gray-700 mr-3">{letter}.</span>
-            <span className="text-gray-800">{text}</span>
-          </div>
-        ))}
+        {Object.entries(question.options).map(([letter, text]) => {
+          const isSelected = selectedAnswer === letter;
+
+          return (
+            <div
+              key={letter}
+              onClick={() => onAnswerSelect(letter)} // Trigger selection on click
+              className={`flex items-start p-4 rounded-lg border transition-all duration-300 cursor-pointer hover:scale-[1.01] ${
+                isSelected
+                  ? "border-emerald-400 ring-opacity-50"
+                  : "border-gray-200 hover:border-emerald-400"
+              }`}
+            >
+              <span
+                className={`font-semibold mr-3 ${isSelected ? "text-emerald-700" : "text-gray-700"}`}
+              >
+                {letter}.
+              </span>
+              <span
+                className={
+                  isSelected ? "text-emerald-900 font-medium" : "text-gray-800"
+                }
+              >
+                {text}
+              </span>
+            </div>
+          );
+        })}
       </div>
     </div>
   );
