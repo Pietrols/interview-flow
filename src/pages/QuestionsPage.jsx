@@ -140,12 +140,16 @@ function QuestionsPage() {
         </div>
       </div>
 
-      {/* Question Card */}
-      <QuestionCard
-        question={currentQuestion}
-        questionNumber={1}
-        totalQuestions={questions.length}
-      />
+      {/* Add ref to question container */}
+      <div ref={questionRef}>
+        <QuestionCard
+          question={currentQuestion}
+          questionNumber={currentIndex + 1}
+          totalQuestions={questions.length}
+          selectedAnswers={selectedAnswers}
+          onAnwerSelect={handleAnswerSelect}
+        />
+      </div>
     </div>
   );
 }
