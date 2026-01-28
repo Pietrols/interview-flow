@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState } from "react";
 import { useParams, Link } from "react-router";
 import QUESTIONS_DATA from "../data/questions";
 import QuestionCard from "../components/cards/QuestionCard";
@@ -13,19 +13,7 @@ function QuestionsPage() {
   // Initialize state
   const [currentIndex, setCurrentIndex] = useState(0);
   const [answers, setAnswers] = useState({});
-
-  // auto scroll when question changes
-  useEffect(() => {
-    if (questionRef.current) {
-      questionRef.current.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
-    }
-  }, [currentIndex]);
-
-  // Create ref for question container
-  const questionRef = useRef(null);
+  const [isTransitioning, setIsTransitioning] = useState(false);
 
   // Find questions for this role
   const roleData = flattenedRoles.find((r) => r.role === role);
@@ -94,6 +82,18 @@ function QuestionsPage() {
       [currentQuestion.id]: answer,
     }));
 
+    setIsTransitioning(true);
+    setTimeout(() => {
+      if (!isLastQuestion) {
+        setCurrentIndex((prev) => prev + 1);
+        setIsTransitioning(false);
+      } else {
+        alert(
+          `Quiz complete! You answered ${Object.keys(answers).length + 1} questions.`,
+        );
+      }
+    }, 400);
+
     // auto advance to next question
     if (!isLastQuestion) {
       setTimeout(() => {
@@ -104,13 +104,21 @@ function QuestionsPage() {
 
   const handlePrevious = () => {
     if (!isFirstQuestion) {
-      setCurrentIndex((prev) => prev - 1);
+      setIsTransitioning(true);
+      setTimeout(() => {
+        setCurrentIndex((prev) => prev - 1);
+        setIsTransitioning(false);
+      }, 300);
     }
   };
 
   const handleNext = () => {
     if (!isLastQuestion) {
-      setCurrentIndex((prev) => prev + 1);
+      setIsTransitioning(true);
+      setTimeout(() => {
+        setCurrentIndex((prev) => prev + 1);
+        setIsTransitioning(false);
+      }, 300);
     }
   };
 
@@ -145,8 +153,11 @@ function QuestionsPage() {
         </div>
       </div>
 
-      {/* Add ref to question container */}
-      <div ref={questionRef}>
+      <div
+        className={`transition-opacity duration-300 ${
+          isTransitioning ? "opacity-0" : "opacity-100"
+        }`}
+      >
         <QuestionCard
           question={currentQuestion}
           questionNumber={currentIndex + 1}
@@ -155,6 +166,7 @@ function QuestionsPage() {
           onAnswerSelect={handleAnswerSelect}
         />
       </div>
+
       {/* Navigation buttons */}
       <div className="flex justify-between items-center mt-8">
         <button
