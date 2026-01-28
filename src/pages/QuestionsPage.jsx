@@ -42,7 +42,7 @@ function QuestionsPage() {
           We don't have Questions for "{role}" yet. Try one of these roles:
         </p>
         <ul className="mb-6 space-y-2">
-          {QUESTIONS_DATA.map((r) => (
+          {flattenedRoles.map((r) => (
             <li key={r.role}>
               <Link
                 to={`/questions/${encodeURIComponent(r.role)}`}
@@ -84,7 +84,7 @@ function QuestionsPage() {
   }
 
   const currentQuestion = questions[currentIndex];
-  const selectedAnswers = answers[currentQuestion.id];
+  const selectedAnswer = answers[currentQuestion.id];
   const isFirstQuestion = currentIndex === 0;
   const isLastQuestion = currentIndex === questions.length - 1;
 
@@ -93,6 +93,13 @@ function QuestionsPage() {
       ...prev,
       [currentQuestion.id]: answer,
     }));
+
+    // auto advance to next question
+    if (!isLastQuestion) {
+      setTimeout(() => {
+        setCurrentIndex((prev) => prev + 1);
+      }, 600);
+    }
   };
 
   const handlePrevious = () => {
@@ -112,18 +119,18 @@ function QuestionsPage() {
       {/* Return Links */}
       <Link
         to="/roles"
-        className="text-gray-600 hover:text-gray-700 font-medium mb-4 inline-block"
+        className="text-gray-600 hover:text-gray-700 font-medium  inline-block"
       >
         Back to Roles
       </Link>
 
       {/* Role Title */}
-      <h1 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">
+      <h1 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
         {role}
       </h1>
 
       {/* Progress Bar */}
-      <div className="mb-6">
+      <div className="mb-4">
         <div className="flex justify-between text-sm text-gray-600 mb-2">
           <span>Progress</span>
           <span>
@@ -146,8 +153,8 @@ function QuestionsPage() {
           question={currentQuestion}
           questionNumber={currentIndex + 1}
           totalQuestions={questions.length}
-          selectedAnswers={selectedAnswers}
-          onAnwerSelect={handleAnswerSelect}
+          selectedAnswer={selectedAnswer}
+          onAnswerSelect={handleAnswerSelect}
         />
       </div>
       {/* Navigation buttons */}
@@ -162,7 +169,7 @@ function QuestionsPage() {
 
         <button
           onClick={handleNext}
-          disabled={isLastQuestion || !selectedAnswers}
+          disabled={isLastQuestion || !selectedAnswer}
           className="px-6 py-2 bg-emerald-600 text-white rounded-lg font-medium disabled:opacity-50 disabled:cursor-not-allowed hover:bg-emerald-700 transition"
         >
           {isLastQuestion ? "Finish" : "Next →"}
@@ -170,7 +177,7 @@ function QuestionsPage() {
       </div>
 
       {/* Validation message */}
-      {!selectedAnswers && (
+      {!selectedAnswer && (
         <p className="text-center text-sm text-gray-500 mt-4">
           Please select an answer to proceed
         </p>
