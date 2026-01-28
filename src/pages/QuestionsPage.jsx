@@ -14,6 +14,16 @@ function QuestionsPage() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [answers, setAnswers] = useState({});
 
+  // auto scroll when question changes
+  useEffect(() => {
+    if (questionRef.current) {
+      questionRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  }, [currentIndex]);
+
   // Create ref for question container
   const questionRef = useRef(null);
 
@@ -78,16 +88,6 @@ function QuestionsPage() {
   const isFirstQuestion = currentIndex === 0;
   const isLastQuestion = currentIndex === questions.length - 1;
 
-  // auto scroll when question changes
-  useEffect(() => {
-    if (questionRef.current) {
-      questionRef.current.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
-    }
-  }, [currentIndex]);
-
   const handleAnswerSelect = (answer) => {
     setAnswers((prev) => ({
       ...prev,
@@ -149,6 +149,24 @@ function QuestionsPage() {
           selectedAnswers={selectedAnswers}
           onAnwerSelect={handleAnswerSelect}
         />
+      </div>
+      {/* Navigation buttons */}
+      <div className="flex justify-between items-center mt-8">
+        <button
+          onClick={handlePrevious}
+          disabled={isFirstQuestion}
+          className="px-6 py-2 bg-gray-200 text-gray-700 rounded-lg font-medium disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-300 transition"
+        >
+          ← Previous
+        </button>
+
+        <button
+          onClick={handleNext}
+          disabled={isLastQuestion || !selectedAnswers}
+          className="px-6 py-2 bg-emerald-600 text-white rounded-lg font-medium disabled:opacity-50 disabled:cursor-not-allowed hover:bg-emerald-700 transition"
+        >
+          {isLastQuestion ? "Finish" : "Next →"}
+        </button>
       </div>
     </div>
   );
