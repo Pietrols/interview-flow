@@ -25,11 +25,11 @@ function QuestionsPage() {
   const [isTransitioning, setIsTransitioning] = useState(false);
 
   // Find questions for this role
-  const roleData = flattenedRoles.find((r) => r.role === role);
+  const roleFound = roleExists(flattenedRoles, role);
   const questions = getQuestionsForRole(flattenedRoles, role);
 
   // Handle role not found
-  if (!roleData) {
+  if (!roleFound) {
     return (
       <div className="max-w-2xl mx-auto text-center py-12">
         <h1 className="text-3xl font-bold text-gray-900 mb-4">
