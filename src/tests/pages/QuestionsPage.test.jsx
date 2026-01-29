@@ -218,6 +218,110 @@ describe("QuestionsPage - User Story: See one interview question at a time", () 
     });
   });
 
+  describe("Navigation: Question progression", () => {
+    it("should update progress bar as questions are answered", async () => {
+      renderWithRouter("Scrum Product Owner");
+
+      // 1 of 3 = 33%
+      expect(screen.getByText("33%")).toBeInTheDocument();
+
+      // Answer first question
+      fireEvent.click(screen.getByText(/B1/));
+
+      await waitFor(() => {
+        // 2 of 3 = 67%
+        expect(screen.getByText("67%")).toBeInTheDocument();
+      });
+    });
+
+    it("should enable Previous button after first question", async () => {
+      renderWithRouter("Scrum Product Owner");
+
+      const prevButton = screen.getByRole("button", { name: /Previous/ });
+      expect(prevButton).toBeDisabled();
+
+      // Answer first question
+      fireEvent.click(screen.getByText(/B1/));
+
+      await waitFor(() => {
+        expect(screen.getByText("Question 2?")).toBeInTheDocument();
+      });
+
+      expect(prevButton).not.toBeDisabled();
+    });
+
+    it('should show "Finish" on last question', async () => {
+      renderWithRouter("Scrum Product Owner");
+
+      // Answer question 1
+      fireEvent.click(screen.getByText(/B1/));
+      await waitFor(() =>
+        expect(screen.getByText("Question 2?")).toBeInTheDocument(),
+      );
+
+      // Answer question 2
+      fireEvent.click(screen.getByText(/A2/));
+      await waitFor(() =>
+        expect(screen.getByText("Question 3?")).toBeInTheDocument(),
+      );
+
+      // Should show "Finish" button
+      expect(
+        screen.getByRole("button", { name: /Finish/ }),
+      ).toBeInTheDocument();
+    });
+
+    it("should complete quiz when last question answered", async () => {
+      renderWithRouter("Scrum Product Owner");
+
+      // Answer all questions
+      fireEvent.click(screen.getByText(/B1/));
+      await waitFor(() =>
+        expect(screen.getByText("Question 2?")).toBeInTheDocument(),
+      );
+
+      fireEvent.click(screen.getByText(/A2/));
+      await waitFor(() =>
+        expect(screen.getByText("Question 3?")).toBeInTheDocument(),
+      );
+
+      fireEvent.click(screen.getByText(/C3/));
+
+      await waitFor(() => {
+        // eslint-disable-next-line no-undef
+        expect(global.alert).toHaveBeenCalledWith(
+          expect.stringContaining("Quiz complete!"),
+        );
+      });
+    });
+  });
+
+  describe("Answer persistence", () => {
+    it("should remember selected answer when navigating back", async () => {
+      renderWithRouter("Scrum Product Owner");
+
+      // Answer question 1 with option B
+      const optionB = screen.getByText(/B1/).closest("div");
+      fireEvent.click(optionB);
+
+      await waitFor(() =>
+        expect(screen.getByText("Question 2?")).toBeInTheDocument(),
+      );
+
+      // Go back
+      const prevButton = screen.getByRole("button", { name: /Previous/ });
+      fireEvent.click(prevButton);
+
+      await waitFor(() =>
+        expect(screen.getByText("Question 1?")).toBeInTheDocument(),
+      );
+
+      // Option B should still be selected
+      const optionBAgain = screen.getByText(/B1/).closest("div");
+      expect(optionBAgain).toHaveClass("border-emerald-400");
+    });
+  });
+
   describe("UI Feedback", () => {
     it("should show instruction text", () => {
       renderWithRouter("Scrum Product Owner");
