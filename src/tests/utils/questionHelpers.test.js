@@ -53,4 +53,23 @@ describe("questionHelpers", () => {
   it("should return 0 progress for zero questions", () => {
     expect(calculateProgress(0, 0)).toBe(0);
   });
+
+  it("should detect first question", () => {
+    expect(isFirstQuestion(0)).toBe(true);
+    expect(isFirstQuestion(1)).toBe(false);
+  });
+
+  it("should detect last question", () => {
+    expect(isLastQuestion(9, 10)).toBe(true);
+    expect(isLastQuestion(8, 10)).toBe(false);
+  });
+
+  it("should count answered questions", () => {
+    const answers = { 1: "A", 2: "B", 3: "C" };
+    expect(getAnsweredCount(answers)).toBe(3);
+  });
+
+  it("should count zero for empty answers", () => {
+    expect(getAnsweredCount({})).toBe(0);
+  });
 });
