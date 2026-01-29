@@ -2,10 +2,19 @@ import { useState } from "react";
 import { useParams, Link } from "react-router";
 import QUESTIONS_DATA from "../data/questions";
 import QuestionCard from "../components/cards/QuestionCard";
+import {
+  flattenQuestionsData,
+  getQuestionsForRole,
+  roleExists,
+  calculateProgress,
+  isFirstQuestion,
+  isLastQuestion,
+  getAnsweredCount,
+} from "../utils/questionHelper";
 
 function QuestionsPage() {
   // Flatten the data to get all roles in a single array
-  const flattenedRoles = QUESTIONS_DATA.flat();
+  const flattenedRoles = flattenQuestionsData(QUESTIONS_DATA);
 
   // Get role from URL
   const { role } = useParams();
@@ -17,7 +26,7 @@ function QuestionsPage() {
 
   // Find questions for this role
   const roleData = flattenedRoles.find((r) => r.role === role);
-  const questions = roleData?.flashcards || [];
+  const questions = getQuestionsForRole(flattenedRoles, role);
 
   // Handle role not found
   if (!roleData) {
@@ -73,8 +82,8 @@ function QuestionsPage() {
 
   const currentQuestion = questions[currentIndex];
   const selectedAnswer = answers[currentQuestion.id];
-  const isFirstQuestion = currentIndex === 0;
-  const isLastQuestion = currentIndex === questions.length - 1;
+  const isFirst = isFirstQuestion(currentIndex);
+  const isLast = isLastQuestion(currentIndex, questions.length);
 
   const handleAnswerSelect = (answer) => {
     setAnswers((prev) => ({
@@ -84,26 +93,19 @@ function QuestionsPage() {
 
     setIsTransitioning(true);
     setTimeout(() => {
-      if (!isLastQuestion) {
+      if (!isLast) {
         setCurrentIndex((prev) => prev + 1);
         setIsTransitioning(false);
       } else {
-        alert(
-          `Quiz complete! You answered ${Object.keys(answers).length + 1} questions.`,
-        );
+        const totalAnswered = getAnsweredCount(answers) + 1;
+        alert(`Quiz complete! You answered ${totalAnswered} questions.`);
+        setIsTransitioning(false);
       }
     }, 400);
-
-    // auto advance to next question
-    if (!isLastQuestion) {
-      setTimeout(() => {
-        setCurrentIndex((prev) => prev + 1);
-      }, 600);
-    }
   };
 
   const handlePrevious = () => {
-    if (!isFirstQuestion) {
+    if (!isFirst) {
       setIsTransitioning(true);
       setTimeout(() => {
         setCurrentIndex((prev) => prev - 1);
@@ -113,7 +115,7 @@ function QuestionsPage() {
   };
 
   const handleNext = () => {
-    if (!isLastQuestion) {
+    if (!isLast) {
       setIsTransitioning(true);
       setTimeout(() => {
         setCurrentIndex((prev) => prev + 1);
@@ -121,6 +123,8 @@ function QuestionsPage() {
       }, 300);
     }
   };
+
+  const progressPercent = calculateProgress(currentIndex, questions.length);
 
   return (
     <div className="max-w-4xl mx-auto ">
@@ -139,15 +143,13 @@ function QuestionsPage() {
       <div className="mb-4">
         <div className="flex justify-between text-sm text-gray-600 mb-4">
           <span>Progress</span>
-          <span>
-            {Math.round(((currentIndex + 1) / questions.length) * 100)}%
-          </span>
+          <span>{progressPercent}%</span>
         </div>
         <div className="w-full bg-gray-200 rounded-full h-2">
           <div
             className="bg-emerald-600 h-2 rounded-full transition-all duration-300"
             style={{
-              width: `${((currentIndex + 1) / questions.length) * 100}%`,
+              width: `${progressPercent}%`,
             }}
           ></div>
         </div>
@@ -171,27 +173,27 @@ function QuestionsPage() {
       <div className="flex justify-between items-center mt-8">
         <button
           onClick={handlePrevious}
-          disabled={isFirstQuestion}
-          className="px-6 py-2 bg-gray-200 text-gray-700 rounded-lg font-medium disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-300 transition"
+          disabled={isFirst}
+          className="px-6 py-2 bg-gray-200 text-gray-700 rounded-lg font-medium disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-300 transition cursor-pointer"
         >
-          ← Previous
+          Previous
         </button>
 
         <button
           onClick={handleNext}
-          disabled={isLastQuestion || !selectedAnswer}
-          className="px-6 py-2 bg-emerald-600 text-white rounded-lg font-medium disabled:opacity-50 disabled:cursor-not-allowed hover:bg-emerald-700 transition"
+          disabled={isLast || !selectedAnswer}
+          className="px-6 py-2 bg-emerald-600 text-white rounded-lg font-medium disabled:opacity-50 disabled:cursor-not-allowed hover:bg-emerald-700 transition cursor-pointer"
         >
-          {isLastQuestion ? "Finish" : "Next →"}
+          {isLast ? "Finish" : "Next "}
         </button>
       </div>
 
-      {/* Validation message */}
-      {!selectedAnswer && (
-        <p className="text-center text-sm text-gray-500 mt-4">
-          Please select an answer to proceed
-        </p>
-      )}
+      {/* Instruction message */}
+      <p className="text-center text-sm text-gray-500 mt-6">
+        {isLast
+          ? "Select your final answer to complete"
+          : "Select an answer to continue"}
+      </p>
     </div>
   );
 }

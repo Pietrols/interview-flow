@@ -2,8 +2,8 @@ function QuestionCard({
   question,
   questionNumber,
   totalQuestions,
-  selectedAnswer, // Added this prop
-  onAnswerSelect, // Added this prop
+  selectedAnswer,
+  onAnswerSelect,
 }) {
   return (
     <div className="bg-white rounded-lg shadow-lg p-6 md:p-8 max-w-3xl mx-auto">
@@ -25,7 +25,7 @@ function QuestionCard({
           return (
             <div
               key={letter}
-              onClick={() => onAnswerSelect(letter)} // Trigger selection on click
+              onClick={() => onAnswerSelect(letter)}
               className={`flex items-start p-4 rounded-lg border transition-all duration-300 cursor-pointer hover:scale-[1.01] ${
                 isSelected
                   ? "border-emerald-400 ring-opacity-50"
