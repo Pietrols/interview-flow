@@ -136,6 +136,50 @@ describe("QuestionsPage - User Story: See one interview question at a time", () 
     });
   });
 
+  describe("Acceptance Criteria: User can navigate back to Roles/Home", () => {
+    it('should display "Back to Roles" link', () => {
+      renderWithRouter("Scrum Product Owner");
+
+      const backLink = screen.getByText(/Back to Roles/);
+      expect(backLink).toBeInTheDocument();
+      expect(backLink).toHaveAttribute("href", "/roles");
+    });
+  });
+
+  describe("Acceptance Criteria: No duplicate or missing questions", () => {
+    it("should not have duplicate question IDs", () => {
+      renderWithRouter("Scrum Product Owner");
+
+      const questionsForRole = questionsData.default[0].flashcards;
+      const ids = questionsForRole.map((q) => q.id);
+      const uniqueIds = new Set(ids);
+
+      expect(uniqueIds.size).toBe(ids.length);
+    });
+
+    it("should display all questions in sequence", async () => {
+      renderWithRouter("Scrum Product Owner");
+
+      // Question 1
+      expect(screen.getByText("Question 1?")).toBeInTheDocument();
+
+      // Answer and advance
+      fireEvent.click(screen.getByText(/B1/));
+      await waitFor(() =>
+        expect(screen.getByText("Question 2?")).toBeInTheDocument(),
+      );
+
+      // Answer and advance
+      fireEvent.click(screen.getByText(/A2/));
+      await waitFor(() =>
+        expect(screen.getByText("Question 3?")).toBeInTheDocument(),
+      );
+
+      // All 3 questions were shown
+      expect(screen.getByText("Question 3 of 3")).toBeInTheDocument();
+    });
+  });
+
   describe("UI Feedback", () => {
     it("should show instruction text", () => {
       renderWithRouter("Scrum Product Owner");
