@@ -26,7 +26,7 @@ function QuestionsPage() {
 
   // Find questions for this role
   const roleFound = roleExists(flattenedRoles, role);
-  const questions = getQuestionsForRole(flattenedRoles, role);
+  const allQuestions = getQuestionsForRole(flattenedRoles, role);
 
   // Handle role not found
   if (!roleFound) {
@@ -61,7 +61,7 @@ function QuestionsPage() {
   }
 
   // Handle no questions
-  if (questions.length === 0) {
+  if (allQuestions.length === 0) {
     return (
       <div className="max-w-2xl mx-auto text-center py-12">
         <h1 className="text-3xl font-bold text-gray-900 mb-4">
@@ -80,10 +80,10 @@ function QuestionsPage() {
     );
   }
 
-  const currentQuestion = questions[currentIndex];
+  const currentQuestion = allQuestions[currentIndex];
   const selectedAnswer = answers[currentQuestion.id];
   const isFirst = isFirstQuestion(currentIndex);
-  const isLast = isLastQuestion(currentIndex, questions.length);
+  const isLast = isLastQuestion(currentIndex, allQuestions.length);
 
   const handleAnswerSelect = (answer) => {
     setAnswers((prev) => ({
@@ -124,7 +124,7 @@ function QuestionsPage() {
     }
   };
 
-  const progressPercent = calculateProgress(currentIndex, questions.length);
+  const progressPercent = calculateProgress(currentIndex, allQuestions.length);
 
   return (
     <div className="max-w-4xl mx-auto ">
@@ -163,7 +163,7 @@ function QuestionsPage() {
         <QuestionCard
           question={currentQuestion}
           questionNumber={currentIndex + 1}
-          totalQuestions={questions.length}
+          totalQuestions={allQuestions.length}
           selectedAnswer={selectedAnswer}
           onAnswerSelect={handleAnswerSelect}
         />
