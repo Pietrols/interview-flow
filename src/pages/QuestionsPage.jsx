@@ -94,15 +94,14 @@ function QuestionsPage() {
     );
   }
 
-  // ✅ Use session questions and answers from context
+  //  Use session questions and answers from context
   const questions = session.questions;
   const currentQuestion = questions[currentIndex];
-  const selectedAnswer = session.answers[currentQuestion?.id]; // ✅ From context
+  const selectedAnswer = session.answers[currentQuestion?.id];
   const isFirst = isFirstQuestion(currentIndex);
-  const isLast = isLastQuestion(currentIndex, questions.length); // ✅ Fixed: function call, not array
+  const isLast = isLastQuestion(currentIndex, questions.length);
 
   const handleAnswerSelect = (answer) => {
-    // ✅ Save to context (not local state)
     saveAnswer(currentQuestion.id, answer);
 
     setIsTransitioning(true);
