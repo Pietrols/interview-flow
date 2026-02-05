@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router";
 import { useInterview } from "../context/InterviewContext";
 
 function SummaryPage() {
@@ -81,16 +81,16 @@ function SummaryPage() {
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <button
             onClick={handleTryAgain}
-            className="px-6 py-3 bg-emerald-600 text-white rounded-lg font-medium hover:bg-emerald-700 transition"
+            className="px-6 py-3 bg-emerald-400 text-white rounded-lg font-medium hover:bg-emerald-700 transition cursor-pointer"
           >
-            🔄 Try {role} Again
+            Try {role} Again
           </button>
 
           <button
             onClick={handleNewRole}
-            className="px-6 py-3 bg-gray-200 text-gray-700 rounded-lg font-medium hover:bg-gray-300 transition"
+            className="px-6 py-3 bg-gray-200 text-gray-700 rounded-lg font-medium hover:bg-gray-300 transition cursor-pointer"
           >
-            🎯 Practice Another Role
+            Practice Another Role
           </button>
         </div>
       </div>
@@ -149,9 +149,9 @@ function SummaryPage() {
                         key={letter}
                         className={`p-3 rounded-lg border-2 ${
                           isCorrectAnswer
-                            ? "border-green-500 bg-green-100"
+                            ? "border-green-00 bg-green-100"
                             : isUserAnswer
-                              ? "border-red-500 bg-red-100"
+                              ? "border-red-300 bg-red-100"
                               : "border-gray-200 bg-white"
                         }`}
                       >
@@ -179,7 +179,7 @@ function SummaryPage() {
                 {/* Rationale */}
                 <div className="bg-white border-l-4 border-blue-500 p-4 rounded">
                   <p className="text-sm font-semibold text-gray-700 mb-1">
-                    📖 Explanation:
+                    Explanation:
                   </p>
                   <p className="text-sm text-gray-600">{question.rationale}</p>
                 </div>

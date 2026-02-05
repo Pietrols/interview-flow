@@ -148,14 +148,10 @@ function QuestionsPage() {
         to="/roles"
         className="text-gray-600 hover:text-gray-700 font-medium mb-4 inline-block"
       >
-        ← Back to Roles
+        Back to Roles
       </Link>
 
       <h1 className="text-2xl font-bold text-gray-900 mb-2">{role}</h1>
-
-      <p className="text-sm text-gray-500 mb-4">
-        {questions.length} random questions from {allQuestions.length} available
-      </p>
 
       <div className="mb-6">
         <div className="flex justify-between text-sm text-gray-600 mb-2">
@@ -190,7 +186,7 @@ function QuestionsPage() {
           disabled={isFirst}
           className="px-6 py-2 bg-gray-200 text-gray-700 rounded-lg font-medium disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-300 transition"
         >
-          ← Previous
+          Previous
         </button>
 
         <button

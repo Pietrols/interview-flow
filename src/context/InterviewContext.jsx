@@ -123,9 +123,7 @@ export function InterviewProvider({ children }) {
   );
 }
 
-/**
- * Hook to access interview context
- */
+// eslint-disable-next-line react-refresh/only-export-components
 export function useInterview() {
   const context = useContext(InterviewContext);
 
