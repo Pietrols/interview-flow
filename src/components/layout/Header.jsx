@@ -29,6 +29,18 @@ const Header = () => {
         >
           Roles
         </Link>
+        <Link
+          to="/blog"
+          className="text-gray-600 hover:text-emerald-600 transition"
+        >
+          Blog
+        </Link>
+        <Link
+          to="/faqs"
+          className="text-gray-600 hover:text-emerald-600 transition"
+        >
+          FAQs
+        </Link>
       </nav>
 
       {/* Hamburger Menu Button (visible on md and below) */}
@@ -71,6 +83,20 @@ const Header = () => {
               onClick={() => setIsMenuOpen(false)}
             >
               Roles
+            </Link>
+            <Link
+              to="/blog"
+              className="block px-3 py-2 text-gray-600 hover:text-emerald-600 hover:bg-gray-50 rounded transition"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Blog
+            </Link>
+            <Link
+              to="/faqs"
+              className="block px-3 py-2 text-gray-600 hover:text-emerald-600 hover:bg-gray-50 rounded transition"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              FAQs
             </Link>
           </nav>
         </div>
