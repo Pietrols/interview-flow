@@ -2,7 +2,7 @@ import { Link } from 'react-router';
 
 function HomePage() {
   return (
-    <div className='homepage-container flex flex-col items-center justify-center min-h-[60vh] px-4'>
+    <div className='homepage-container flex flex-col items-center justify-center min-h-screen px-4 w-screen'>
       <h2 className='text-3xl font-bold mb-4 text-center'>
         Welcome to Interview Prep 101
       </h2>
