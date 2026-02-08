@@ -1,22 +1,84 @@
-import { Link } from 'react-router';
+import { Link } from "react-router";
+import { useAuth } from "../context/AuthContext";
+import AuthForm from "../components/auth/AuthForm";
 
 function HomePage() {
+  const { isAuthenticated, user, signup, login, isLoading } = useAuth();
+
+  const handleAuth = (email, password, isLogin) => {
+    if (isLogin) {
+      return login(email, password);
+    } else {
+      return signup(email, password);
+    }
+  };
+
+  // Show auth form if not logged in
+  if (!isAuthenticated) {
+    return (
+      <div className="max-w-6xl mx-auto px-4 py-12">
+        <div className="text-center mb-12">
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            Welcome to Interview Prep 101
+          </h1>
+          <p className="text-lg text-gray-600">
+            Master your interview skills with our comprehensive practice
+            platform
+          </p>
+        </div>
+
+        <AuthForm onSubmit={handleAuth} isLoading={isLoading} />
+      </div>
+    );
+  }
+
+  // Show dashboard if logged in
   return (
-    <div className='homepage-container flex flex-col items-center justify-center min-h-screen px-4 w-screen'>
-      <h2 className='text-3xl font-bold mb-4 text-center'>
-        Welcome to Interview Prep 101
-      </h2>
-      <p className='max-w-xl mx-auto mb-6 text-lg text-gray-700 text-center'>
-        This app is designed to help you prepare for job interviews by providing
-        curated questions, role-based practice, and a summary of your progress.
-        Explore different roles, answer questions, and track your readiness for
-        your next big opportunity!
-      </p>
-      <Link
-        to='/roles'
-        className='inline-block bg-yellow-400 hover:bg-yellow-500 text-white font-semibold py-2 px-6 rounded shadow transition-colors duration-200'>
-        Roles
-      </Link>
+    <div className="max-w-6xl mx-auto px-4 py-12">
+      <div className="text-center mb-12">
+        <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          Welcome Back, {user.email}!
+        </h1>
+        <p className="text-lg text-gray-600 mb-8">
+          Ready to practice your interview skills?
+        </p>
+
+        <Link
+          to="/roles"
+          className="inline-block px-8 py-4 bg-emerald-600 text-white rounded-lg font-medium hover:bg-emerald-700 transition text-lg"
+        >
+          Start Practicing
+        </Link>
+      </div>
+
+      <div className="grid md:grid-cols-3 gap-6 mt-16">
+        <div className="bg-white rounded-lg shadow-lg p-6 text-center">
+          <h3 className="text-xl font-bold text-gray-900 mb-2">
+            Multiple Roles
+          </h3>
+          <p className="text-gray-600">
+            Practice for various job positions and industries
+          </p>
+        </div>
+
+        <div className="bg-white rounded-lg shadow-lg p-6 text-center">
+          <h3 className="text-xl font-bold text-gray-900 mb-2">
+            Timed Practice
+          </h3>
+          <p className="text-gray-600">
+            Simulate real interview conditions with time tracking
+          </p>
+        </div>
+
+        <div className="bg-white rounded-lg shadow-lg p-6 text-center">
+          <h3 className="text-xl font-bold text-gray-900 mb-2">
+            Instant Feedback
+          </h3>
+          <p className="text-gray-600">
+            Get detailed explanations for every question
+          </p>
+        </div>
+      </div>
     </div>
   );
 }
