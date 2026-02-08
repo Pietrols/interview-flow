@@ -26,7 +26,6 @@ function HomePage() {
             platform
           </p>
         </div>
-
         <AuthForm onSubmit={handleAuth} isLoading={isLoading} />
       </div>
     );
@@ -36,9 +35,9 @@ function HomePage() {
   return (
     <div className="max-w-6xl mx-auto px-4 py-12">
       <div className="text-center mb-12">
-        <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+        <h2 className="text-2xl md:text-2xl font-bold text-gray-900 mb-4">
           Welcome Back, {user.email}!
-        </h1>
+        </h2>
         <p className="text-lg text-gray-600 mb-8">
           Ready to practice your interview skills?
         </p>
