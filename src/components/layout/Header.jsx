@@ -30,7 +30,7 @@ const Header = () => {
           to="/"
           className="text-xl font-bold text-gray-900 hover:text-yellow-400"
         >
-          Interview Prep 101
+          InterviewFlow
         </Link>
 
         {/* Desktop Navigation (visible on md and up) */}
