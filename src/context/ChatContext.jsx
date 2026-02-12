@@ -14,7 +14,7 @@ import { useAuth } from "./AuthContext";
 const ChatContext = createContext(null);
 
 // Rate limiting: 10 messages per minute
-const RATE_LIMIT = 10;
+const RATE_LIMIT = 50;
 const RATE_LIMIT_WINDOW = 60000; // 1 minute in milliseconds
 const STORAGE_KEY = "interviewflow_chat_history";
 
@@ -96,7 +96,7 @@ export function ChatProvider({ children }) {
       );
     }
     const genAI = new GoogleGenerativeAI(apiKey);
-    return genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+    return genAI.getGenerativeModel({ model: "gemini-3-flash-preview" });
   }, []);
 
   // Check rate limit
@@ -231,7 +231,11 @@ Remember: You guide, you don't solve. You teach, you don't tell answers.`;
         timestamp: new Date().toISOString(),
       };
 
-      setMessages((prev) => [...prev, newUserMessage]);
+      setMessages((prev) => {
+        const updated = [...prev, newUserMessage];
+        // Manual check: if the last message was just sent 1 second ago, return prev
+        return updated;
+      });
       setIsLoading(true);
 
       try {
@@ -239,6 +243,7 @@ Remember: You guide, you don't solve. You teach, you don't tell answers.`;
 
         // Build conversation history for context
         const chatHistory = messages
+          .slice(-2)
           .map(
             (msg) =>
               `${msg.role === "user" ? "User" : "Assistant"}: ${msg.content}`,
