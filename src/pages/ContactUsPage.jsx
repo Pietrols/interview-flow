@@ -2,38 +2,32 @@ function ContactUsPage() {
   const teamMembers = [
     {
       id: 1,
-      name: "Sarah Johnson",
-      role: "Product Manager",
-      linkedin: "https://linkedin.com/in/sarahjohnson",
+      name: 'Ogechi Ogharandukun',
+      role: 'Scrum Master',
+      linkedin: 'https://www.linkedin.com/in/ogechi-ogharandukun/',
     },
     {
       id: 2,
-      name: "Michael Chen",
-      role: "Lead Frontend Developer",
-      linkedin: "https://linkedin.com/in/michaelchen",
+      name: 'Peter Kabamba',
+      role: 'Web Developer',
+      linkedin: '',
     },
     {
       id: 3,
-      name: "Emily Rodriguez",
-      role: "Backend Developer",
-      linkedin: "https://linkedin.com/in/emilyrodriguez",
-    },
-    {
-      id: 4,
-      name: "James Park",
-      role: "UI/UX Designer",
-      linkedin: "https://linkedin.com/in/jamespark",
+      name: 'Lawrence Narh-Lawson',
+      role: 'Web Developer',
+      linkedin: 'https://www.linkedin.com/in/lawlawson/',
     },
   ];
 
   return (
-    <div className="max-w-6xl mx-auto px-4 py-12">
+    <div className='max-w-6xl mx-auto px-4 py-12'>
       {/* Header */}
-      <div className="text-center mb-16">
-        <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+      <div className='text-center mb-16'>
+        <h1 className='text-4xl md:text-5xl font-bold text-gray-900 mb-4'>
           Get In Touch
         </h1>
-        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+        <p className='text-lg text-gray-600 max-w-2xl mx-auto'>
           Meet the talented team behind InterviewFlow. We're passionate about
           helping you ace your interviews. Reach out to any of our team members
           on LinkedIn.
@@ -41,31 +35,29 @@ function ContactUsPage() {
       </div>
 
       {/* Team Members Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+      <div className='grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 justify-items-center'>
         {teamMembers.map((member) => (
           <div
             key={member.id}
-            className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden border border-gray-200 hover:border-yellow-400"
-          >
+            className='bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden border border-gray-200 hover:border-yellow-400'>
             {/* Member Card Background */}
-            <div className="bg-gradient-to-br from-yellow-400 to-yellow-300 h-24"></div>
+            <div className='bg-gradient-to-br from-yellow-400 to-yellow-300 h-24'></div>
 
             {/* Member Info */}
-            <div className="px-6 py-6 text-center">
-              <h3 className="text-xl font-bold text-gray-900 mb-2">
+            <div className='px-6 py-6 text-center'>
+              <h3 className='text-xl font-bold text-gray-900 mb-2'>
                 {member.name}
               </h3>
-              <p className="text-gray-600 text-sm mb-4 font-medium">
+              <p className='text-gray-600 text-sm mb-4 font-medium'>
                 {member.role}
               </p>
 
               {/* LinkedIn Button */}
               <a
                 href={member.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block px-6 py-2 bg-yellow-400 text-gray-900 rounded-lg font-semibold hover:bg-yellow-500 transition duration-200 text-sm"
-              >
+                target='_blank'
+                rel='noopener noreferrer'
+                className='inline-block px-6 py-2 bg-yellow-400 text-gray-900 rounded-lg font-semibold hover:bg-yellow-500 transition duration-200 text-sm'>
                 Connect on LinkedIn
               </a>
             </div>
@@ -74,15 +66,16 @@ function ContactUsPage() {
       </div>
 
       {/* Contact Info Section */}
-      <div className="bg-gray-50 rounded-lg border border-gray-200 p-8 text-center">
-        <h2 className="text-2xl font-bold text-gray-900 mb-4">Other Ways to Reach Us</h2>
-        <p className="text-gray-600 mb-6">
+      <div className='bg-gray-50 rounded-lg border border-gray-200 p-8 text-center'>
+        <h2 className='text-2xl font-bold text-gray-900 mb-4'>
+          Other Ways to Reach Us
+        </h2>
+        <p className='text-gray-600 mb-6'>
           Have questions or suggestions? Feel free to contact us via email.
         </p>
         <a
-          href="mailto:contact@interviewflow.com"
-          className="inline-block px-8 py-3 bg-yellow-400 text-gray-900 rounded-lg font-semibold hover:bg-yellow-500 transition shadow-lg hover:shadow-xl"
-        >
+          href=''
+          className='inline-block px-8 py-3 bg-yellow-400 text-gray-900 rounded-lg font-semibold hover:bg-yellow-500 transition shadow-lg hover:shadow-xl'>
           Send us an Email
         </a>
       </div>
