@@ -10,7 +10,7 @@ function ContactUsPage() {
       id: 2,
       name: 'Peter Kabamba',
       role: 'Web Developer',
-      linkedin: '',
+      linkedin: 'https://linkedin.com/in/peter-kabamba-959a061b9',
     },
     {
       id: 3,
