@@ -2,10 +2,12 @@ import { useState } from "react";
 import { Link } from "react-router";
 import { useAuth } from "../context/AuthContext";
 import AuthModal from "../components/auth/AuthModal";
+import { getRandomChallenge } from "../data/challenges";
 
 function HomePage() {
   const { isAuthenticated, user, signup, login, isLoading } = useAuth();
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
+  const [dailyChallenge] = useState(getRandomChallenge());
 
   const handleAuth = (email, password, isLogin) => {
     return isLogin ? login(email, password) : signup(email, password);
@@ -79,19 +81,42 @@ function HomePage() {
             </div>
           </div>
 
+          {/* Daily Challenge Widget */}
           <div className="bg-yellow-50 border border-yellow-200 rounded-2xl p-8 shadow-sm">
-            <h3 className="text-lg font-bold text-gray-900 mb-3">
-              Daily Challenge
-            </h3>
-            <p className="text-gray-700 text-sm mb-6">
-              "How do you handle conflict with a coworker?"
-              <br />
-              <br />
-              Practice this behavioral question today to keep your streak alive!
+            <div className="flex items-center justify-between mb-3">
+              <h3 className="text-lg font-bold text-gray-900">
+                Daily Challenge
+              </h3>
+              <span
+                className={`text-xs px-2 py-1 rounded-full font-semibold ${
+                  dailyChallenge.difficulty === "easy"
+                    ? "bg-green-100 text-green-700"
+                    : dailyChallenge.difficulty === "medium"
+                      ? "bg-yellow-100 text-yellow-700"
+                      : "bg-red-100 text-red-700"
+                }`}
+              >
+                {dailyChallenge.difficulty}
+              </span>
+            </div>
+
+            <div className="mb-2">
+              <span className="text-xs font-semibold text-gray-500 uppercase">
+                {dailyChallenge.type} • {dailyChallenge.category}
+              </span>
+            </div>
+            <p className="text-gray-900 font-medium text-sm mb-4">
+              "{dailyChallenge.challenge}"
             </p>
-            <button className="w-full py-3 bg-white border-2 border-yellow-400 text-yellow-700 rounded-lg font-bold hover:bg-yellow-400 hover:text-white transition">
-              Attempt Now
-            </button>
+            <p className="text-gray-600 text-xs mb-4 italic">
+              Estimated time: {dailyChallenge.timeEstimate}
+            </p>
+            <Link
+              to="/challenges"
+              className="block w-full py-3 bg-white border-2 border-yellow-400 text-yellow-700 rounded-lg font-bold hover:bg-yellow-400 hover:text-white transition text-center"
+            >
+              View All Challenges
+            </Link>
           </div>
         </div>
       ) : (
