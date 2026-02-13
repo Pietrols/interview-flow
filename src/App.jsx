@@ -9,6 +9,7 @@ import QuestionsPage from "./pages/QuestionsPage";
 import SummaryPage from "./pages/SummaryPage";
 import FAQsPage from "./pages/FAQsPage";
 import ContactUsPage from "./pages/ContactUsPage";
+import ChallengesPage from "./pages/ChallengesPage";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
                 <Route path="contact-us" element={<ContactUsPage />} />
                 <Route path="summary" element={<SummaryPage />} />
                 <Route path="questions/:role" element={<QuestionsPage />} />
+                <Route path="challenges" element={<ChallengesPage />} />
               </Route>
             </Routes>
           </ChatProvider>
