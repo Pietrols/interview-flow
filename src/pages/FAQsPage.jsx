@@ -95,7 +95,7 @@ function FAQsPage() {
                 {faq.question}
               </h3>
               <span
-                className={`flex-shrink-0 text-yellow-400 text-2xl transition-transform duration-300 ${
+                className={`shrink-0 text-yellow-400 text-2xl transition-transform duration-300 ${
                   expandedIndex === index ? 'transform rotate-180' : ''
                 }`}>
                 ▼
