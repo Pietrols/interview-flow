@@ -95,9 +95,9 @@ function HomePage() {
             <div className="space-y-4">
               {recentSessions.length > 0 ? (
                 <>
-                  {recentSessions.map((session) => (
+                  {recentSessions.map((session, index) => (
                     <div
-                      key={session.id}
+                      key={`${session.id}-${index}`} // Combining ID and Index guarantees uniqueness
                       className="flex items-center justify-between p-4 bg-gray-50 rounded-xl border border-gray-100"
                     >
                       <div>
