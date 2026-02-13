@@ -10,8 +10,6 @@ import SummaryPage from './pages/SummaryPage';
 import FAQsPage from './pages/FAQsPage';
 import ContactUsPage from './pages/ContactUsPage';
 
-
-
 function App() {
   return (
     <AuthProvider>
@@ -25,7 +23,8 @@ function App() {
                 <Route path='faqs' element={<FAQsPage />} />
                 <Route path='contact-us' element={<ContactUsPage />} />
                 <Route path='summary' element={<SummaryPage />} />
-                <Route path="questions/:role" element={<QuestionsPage />} />
+                <Route path='questions/:role' element={<QuestionsPage />} />
+              </Route>
             </Routes>
           </ChatProvider>
         </BrowserRouter>
