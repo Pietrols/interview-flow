@@ -11,7 +11,7 @@ const blogPosts = [
     content: `
 **Ace Your Job Interview with These 5 Simple Tips**
 
-Job interviews can feel intimidating, even for experienced professionals. The pressure to make a strong first impression while answering questions confidently can make anyone nervous. The good news is that interview success is rarely about being perfect — it’s about being prepared. Here are five practical tips to help you walk into your next interview feeling confident and ready.
+Job interviews can feel intimidating, even for experienced professionals. The pressure to make a strong first impression while answering questions confidently can make anyone nervous. The good news is that interview success is rarely about being perfect, rather it’s about being prepared. Here are five practical tips to help you walk into your next interview feeling confident and ready.
 
 **1. Research the Company Properly**
 Before your interview, spend time understanding the company's mission, values, and recent work. Look at their website, social media, and any recent news. This allows you to tailor your answers and demonstrate genuine interest. Employers notice when candidates clearly understand what the organisation does.
@@ -76,7 +76,7 @@ Keep the Situation and Task brief, and spend most of your time on the Action and
 
 **Common Mistakes to Avoid**
 
-Avoid speaking too generally or describing what the team did without explaining your personal contribution. Also, try not to skip the Result — employers want to know what changed because of your actions.
+Avoid speaking too generally or describing what the team did without explaining your personal contribution. Also, try not to skip the Result, employers want to know what changed because of your actions.
 
 **Final Thoughts**
 
@@ -95,7 +95,7 @@ The STAR method turns difficult interview questions into structured storytelling
     content: `
 **How to Network with Tech Recruiters Effectively**
 
-For many people trying to break into the tech industry, networking with recruiters can feel uncomfortable or transactional. In reality, good recruiter relationships are built the same way as any professional connection — through clarity, consistency, and mutual value. Here's how to approach networking with tech recruiters in a way that actually works.
+For many people trying to break into the tech industry, networking with recruiters can feel uncomfortable or transactional. In reality, good recruiter relationships are built the same way as any professional connection through clarity, consistency, and mutual value. Here's how to approach networking with tech recruiters in a way that actually works.
 
 **1. Make Your Online Presence Clear and Focused**
 
@@ -107,7 +107,7 @@ Avoid generic messages like "Hi, can you help me find a job?" Instead, introduce
 
 **3. Treat Conversations Like Professional Relationships**
 
-Recruiters aren't just job gatekeepers — they're long-term industry contacts. Be polite, responsive, and honest about your experience level and availability. If you're early in your career, say so. Transparency builds trust.
+Recruiters aren't just job gatekeepers they're long-term industry contacts. Be polite, responsive, and honest about your experience level and availability. If you're early in your career, say so. Transparency builds trust.
 
 **4. Stay Visible Without Being Pushy**
 
@@ -119,7 +119,7 @@ If a recruiter gives advice or arranges an interview, follow up with a short tha
 
 **Final Thoughts**
 
-Effective networking with tech recruiters isn't about asking for jobs — it's about building professional credibility over time. Focus on clear communication, genuine relationships, and consistent progress, and opportunities are far more likely to follow.
+Effective networking with tech recruiters isn't about asking for jobs it's about building professional credibility over time. Focus on clear communication, genuine relationships, and consistent progress, and opportunities are far more likely to follow.
 `,
   },
 ];
