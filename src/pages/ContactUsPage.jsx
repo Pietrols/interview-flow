@@ -44,12 +44,12 @@ function ContactUsPage() {
         {teamMembers.map((member) => (
           <div
             key={member.id}
-            className='bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden border border-gray-200 hover:border-yellow-400'>
+            className='bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden border border-gray-200 hover:border-yellow-400 w-72 h-80 flex flex-col'>
             {/* Member Card Background */}
             <div className='bg-linear-to-br from-yellow-400 to-yellow-300 h-24'></div>
 
             {/* Member Info */}
-            <div className='px-6 py-6 text-center'>
+            <div className='px-6 py-6 text-center flex flex-col justify-between flex-grow'>
               <h3 className='text-xl font-bold text-gray-900 mb-2'>
                 {member.name}
               </h3>
@@ -58,7 +58,7 @@ function ContactUsPage() {
               </p>
 
               {/* Social Links */}
-              <div className='flex gap-4 justify-center'>
+              <div className='flex gap-4 justify-center mt-auto'>
                 <a
                   href={member.github}
                   target='_blank'
