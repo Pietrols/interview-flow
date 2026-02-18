@@ -6,6 +6,8 @@ const blogPosts = [
     date: 'February 10, 2026',
     summary:
       'Five practical tips to help you prepare and feel confident for your next job interview.',
+    image:
+      'https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80',
     content: `
 **Ace Your Job Interview with These 5 Simple Tips**
 
@@ -46,6 +48,8 @@ Interviewing is a skill that improves with practice. Each interview is valuable 
     date: 'February 11, 2026',
     summary:
       'Learn how to structure your answers to behavioral interview questions using the STAR framework.',
+    image:
+      'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80',
     content: `
 **Understanding the STAR Method for Behavioural Questions**
 
@@ -86,6 +90,8 @@ The STAR method turns difficult interview questions into structured storytelling
     date: 'February 12, 2026',
     summary:
       'Tips on building relationships with recruiters to uncover opportunities and stand out in a competitive market.',
+    image:
+      'https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80',
     content: `
 Here are a few tactics:
 
