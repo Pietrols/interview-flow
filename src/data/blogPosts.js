@@ -47,17 +47,36 @@ Interviewing is a skill that improves with practice. Each interview is valuable 
     summary:
       'Learn how to structure your answers to behavioral interview questions using the STAR framework.',
     content: `
-Behavioral interviews focus on how you've handled situations in the past. STAR stands for:
+**Understanding the STAR Method for Behavioural Questions**
 
-- **Situation:** Set the scene.
+Behavioural interview questions are designed to understand how you've handled real situations in the past. Questions like "Tell me about a time you solved a problem" or "Describe a challenge you faced at work" can feel difficult if you don't have a clear structure for answering them. That's where the STAR method comes in.
 
-- **Task:** Describe the challenge.
+**What Is the STAR Method?**
 
-- **Action:** Explain what you did.
+STAR is a simple framework that helps you give clear, organised answers:
 
-- **Result:** Share the outcome.
+* **Situation** – Set the scene. Briefly explain the context or challenge you faced.
+* **Task** – Describe your responsibility or goal in that situation.
+* **Action** – Explain the specific steps you took to address the problem.
+* **Result** – Share the outcome and what you achieved or learned.
 
-Crafting your story using this framework keeps your response focused and memorable.
+This structure keeps your answer focused while showing employers exactly how you think and work.
+
+**Why Employers Use Behavioural Questions**
+
+Employers believe past behaviour is a strong indicator of future performance. Instead of hypothetical answers, they want real examples that demonstrate skills like teamwork, leadership, communication, and problem-solving.
+
+**How to Use STAR Effectively**
+
+Keep the Situation and Task brief, and spend most of your time on the Action and Result. Interviewers are most interested in what *you* did and the impact you made. Whenever possible, include measurable outcomes such as improved efficiency, increased sales, or successful project completion.
+
+**Common Mistakes to Avoid**
+
+Avoid speaking too generally or describing what the team did without explaining your personal contribution. Also, try not to skip the Result — employers want to know what changed because of your actions.
+
+**Final Thoughts**
+
+The STAR method turns difficult interview questions into structured storytelling. With a few prepared examples from your experience, you'll be able to answer behavioural questions clearly, confidently, and with purpose.
 `,
   },
   {
