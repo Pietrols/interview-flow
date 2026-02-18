@@ -1,21 +1,26 @@
+import { Github, Linkedin } from 'lucide-react';
+
 function ContactUsPage() {
   const teamMembers = [
     {
       id: 1,
       name: 'Ogechi Ogharandukun',
       role: 'Scrum Master',
+      github: 'https://github.com/ogechi-ogharandukun',
       linkedin: 'https://www.linkedin.com/in/ogechi-ogharandukun/',
     },
     {
       id: 2,
       name: 'Peter Kabamba',
       role: 'Web Developer',
+      github: 'https://github.com/peter-kabamba',
       linkedin: 'https://linkedin.com/in/peter-kabamba-959a061b9',
     },
     {
       id: 3,
       name: 'Lawrence Narh-Lawson',
       role: 'Web Developer',
+      github: 'https://github.com/lawlawson',
       linkedin: 'https://www.linkedin.com/in/lawlawson/',
     },
   ];
@@ -52,14 +57,23 @@ function ContactUsPage() {
                 {member.role}
               </p>
 
-              {/* LinkedIn Button */}
-              <a
-                href={member.linkedin}
-                target='_blank'
-                rel='noopener noreferrer'
-                className='inline-block px-6 py-2 bg-yellow-400 text-gray-900 rounded-lg font-semibold hover:bg-yellow-500 transition duration-200 text-sm'>
-                Connect on LinkedIn
-              </a>
+              {/* Social Links */}
+              <div className='flex gap-4 justify-center'>
+                <a
+                  href={member.github}
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  className='p-2 rounded-full bg-gray-100 hover:bg-yellow-400 transition duration-200'>
+                  <Github size={20} className='text-gray-900' />
+                </a>
+                <a
+                  href={member.linkedin}
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  className='p-2 rounded-full bg-gray-100 hover:bg-yellow-400 transition duration-200'>
+                  <Linkedin size={20} className='text-gray-900' />
+                </a>
+              </div>
             </div>
           </div>
         ))}
