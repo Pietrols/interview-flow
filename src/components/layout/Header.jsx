@@ -34,13 +34,7 @@ const Header = () => {
         </Link>
 
         {/* Desktop Navigation (visible on md and up) */}
-        <nav className="hidden md:flex items-center gap-6">
-          <Link
-            to="/"
-            className="text-gray-600 hover:text-yellow-400 transition"
-          >
-            Home
-          </Link>
+        <nav className="hidden lg:flex items-center gap-6">
           {isAuthenticated && (
             <Link
               to="/roles"
@@ -99,7 +93,7 @@ const Header = () => {
         {/* Hamburger Menu Button (visible on md and below) */}
         <button
           onClick={toggleMenu}
-          className="md:hidden flex flex-col gap-1 focus:outline-none cursor-pointer"
+          className="lg:hidden flex flex-col gap-1 focus:outline-none cursor-pointer"
           aria-label="Toggle navigation menu"
         >
           <span
@@ -121,7 +115,7 @@ const Header = () => {
 
         {/* Mobile Menu Dropdown (visible when toggled on mobile) */}
         {isMenuOpen && (
-          <div className="absolute top-16 left-0 right-0 bg-white border-b border-gray-200 md:hidden shadow-lg z-50">
+          <div className="absolute top-16 left-0 right-0 bg-white border-b border-gray-200 lg:hidden shadow-lg z-50">
             <nav className="flex flex-col gap-2 p-4">
               <Link
                 to="/"
