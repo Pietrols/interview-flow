@@ -35,12 +35,6 @@ const Header = () => {
 
         {/* Desktop Navigation (visible on md and up) */}
         <nav className="hidden lg:flex items-center gap-6">
-          <Link
-            to="/"
-            className="text-gray-600 hover:text-yellow-400 transition"
-          >
-            Home
-          </Link>
           {isAuthenticated && (
             <Link
               to="/roles"
