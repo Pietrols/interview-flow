@@ -1,11 +1,25 @@
 # InterviewFlow - Interview Practice Platform
 
-[Live Preview](https://interview-flow-sable.vercel.app/)
+<div align="center">
 
-InterviewFlow is a comprehensive interview preparation platform that helps users practice job interview questions with AI-powered assistance. Built as part of Chingu Voyage 59, this application provides role-specific interview questions, real-time feedback, and an intelligent chatbot to guide users through their preparation journey.
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Visit%20Site-yellow?style=for-the-badge)](https://interview-flow-sable.vercel.app/)
+[![React](https://img.shields.io/badge/React-19.2-61DAFB?style=for-the-badge&logo=react)](https://react.dev/)
+[![Vite](https://img.shields.io/badge/Vite-7.2-646CFF?style=for-the-badge&logo=vite)](https://vitejs.dev/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind-4.1-38BDF8?style=for-the-badge&logo=tailwindcss)](https://tailwindcss.com/)
+[![License](https://img.shields.io/badge/License-Chingu%20V59-lightgrey?style=for-the-badge)](./LICENSE)
+
+**A comprehensive, AI-powered interview preparation platform built during Chingu Voyage 59.**
+
+[Live Demo](https://interview-flow-sable.vercel.app/) · [Report Bug](https://github.com/chingu-voyages/V59-tier2-team-22/issues) · [Request Feature](https://github.com/chingu-voyages/V59-tier2-team-22/issues)
+
+</div>
+
+---
 
 ## Table of Contents
 
+- [Overview](#overview)
+- [Screenshots](#screenshots)
 - [Features](#features)
 - [Tech Stack](#tech-stack)
 - [Getting Started](#getting-started)
@@ -13,40 +27,87 @@ InterviewFlow is a comprehensive interview preparation platform that helps users
 - [Core Features Documentation](#core-features-documentation)
   - [Authentication System](#authentication-system)
   - [Interview Practice Flow](#interview-practice-flow)
+  - [Daily Challenges](#daily-challenges)
   - [AI Chatbot Assistant](#ai-chatbot-assistant)
   - [Content Pages](#content-pages)
 - [Environment Configuration](#environment-configuration)
 - [Development](#development)
 - [Testing](#testing)
-- [Team Documents](#team-documents)
-- [Our Team](#our-team)
+- [Deployment](#deployment)
+- [Team](#team)
+
+---
+
+## Overview
+
+InterviewFlow is a full-featured interview preparation platform that helps users practice role-specific technical interview questions with real-time AI-powered guidance. It provides a low-pressure, anonymous environment to build confidence and sharpen skills before real interviews.
+
+Built collaboratively by a three-person team during **Chingu Voyage 59**, the project demonstrates strong React architecture, AI integration, and a focus on user experience across the entire interview journey, from role selection to score review.
+
+---
+
+## Screenshots
+
+> **Note for contributors:** Replace each placeholder path below with actual screenshots before publishing.
+
+### Home Page
+
+![Home Page Logged Out](./public/Screenshot%202026-02-20%20at%209.14.52 PM.png)
+
+![Home Page Logged In](./public/Screenshot%202026-02-20%20at%209.15.12 PM.png)
+
+### Roles Selection
+
+![Roles Page](./public/Screenshot%202026-02-20%20at%209.15.38 PM.png)
+
+### Interview Practice Session
+
+![Questions Page](./public/Screenshot%202026-02-20%20at%209.16.53 PM.png)
+
+### Score Summary & Review
+
+![Summary Page](./public/Screenshot%202026-02-20%20at%209.32.43 PM.png)
+
+### Daily Challenges
+
+![Challenges Page](./public/Screenshot%202026-02-20%20at%209.15.50 PM.png)
+
+### AI Chatbot Assistant
+
+![Chat Widget](./public/Screenshot%202026-02-20%20at%209.18.04 PM.png)
 
 ---
 
 ## Features
 
-- User authentication with persistent sessions
-- Role-based interview question practice
-- Real-time question navigation with progress tracking
-- Comprehensive score summaries with detailed feedback
-- AI-powered chatbot for navigation help and question hints
-- Blog with interview preparation articles
-- FAQ section with common questions
-- Contact page with team information
-- Fully responsive design for mobile and desktop
+- **User Authentication** - Email/password sign-up and login with persistent localStorage sessions
+- **Role-Based Practice** - Browse and select from multiple job roles, each with a curated question pool
+- **Randomised Question Sets** - Each session draws 20 unique questions at random, keeping practice fresh
+- **Progress Tracking** - Real-time progress bar, per-question navigation (Previous / Next), and answer persistence within a session
+- **Score Summary** - Percentage score, correct/incorrect breakdown, time taken, and a full question-by-question review with explanations
+- **Session History** - Last 3 completed sessions saved and displayed on the dashboard
+- **Daily Challenges** - Filterable bank of behavioral and technical challenges with expert tips
+- **AI Chatbot Assistant** - Google Gemini-powered chat widget for platform navigation help and question hints (without revealing answers)
+- **Blog** - Interview preparation articles with images, authors, and summaries
+- **FAQ** - Accordion-style answers to common platform questions
+- **Contact** - Team member cards with GitHub and LinkedIn links
+- **Fully Responsive** - Mobile-first layout that works cleanly on all screen sizes
 
 ---
 
 ## Tech Stack
 
-- **Framework:** [React](https://react.dev/) 19.2.0
-- **Build Tool:** [Vite](https://vitejs.dev/) 6.0
-- **Routing:** [React Router](https://reactrouter.com/) 7.13.0
-- **Styling:** [Tailwind CSS](https://tailwindcss.com/) 4.1.18
-- **AI Integration:** [Google Gemini API](https://ai.google.dev/) (Flash 3.5)
-- **Icons:** [Lucide React](https://lucide.dev/)
-- **Testing:** [Vitest](https://vitest.dev/) & [React Testing Library](https://testing-library.com/react)
-- **State Management:** React Context API
+| Category           | Technology                                                                                                          |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------- |
+| Framework          | [React](https://react.dev/) 19.2                                                                                    |
+| Build Tool         | [Vite](https://vitejs.dev/) 7.2                                                                                     |
+| Routing            | [React Router](https://reactrouter.com/) 7.13                                                                       |
+| Styling            | [Tailwind CSS](https://tailwindcss.com/) 4.1                                                                        |
+| AI Integration     | [Google Gemini API](https://ai.google.dev/) (Flash)                                                                 |
+| Icons              | [Lucide React](https://lucide.dev/)                                                                                 |
+| Markdown Rendering | [react-markdown](https://github.com/remarkjs/react-markdown) + [remark-gfm](https://github.com/remarkjs/remark-gfm) |
+| State Management   | React Context API                                                                                                   |
+| Testing            | [Vitest](https://vitest.dev/) + [React Testing Library](https://testing-library.com/react)                          |
 
 ---
 
@@ -55,46 +116,47 @@ InterviewFlow is a comprehensive interview preparation platform that helps users
 ### Prerequisites
 
 - [Node.js](https://nodejs.org/) v18 or higher
-- npm or yarn package manager
-- Google Gemini API key (free tier available)
+- npm or yarn
+- A Google Gemini API key (free tier - 15 req/min, 1,500/day)
 
 ### Installation
 
-1. **Clone the repository:**
+1. **Clone the repository**
 
    ```bash
    git clone https://github.com/chingu-voyages/V59-tier2-team-22.git
    cd V59-tier2-team-22
    ```
 
-2. **Install dependencies:**
+2. **Install dependencies**
 
    ```bash
    npm install
    ```
 
-3. **Set up environment variables:**
+3. **Set up environment variables**
 
    ```bash
    cp .env.example .env
    ```
 
-   Add your Gemini API key to `.env`:
+   Edit `.env` and add your API key:
 
-   ```
+   ```env
    VITE_GEMINI_API_KEY=your_api_key_here
    ```
 
-   Get your free API key at: https://aistudio.google.com/app/apikey
+   Get a free key at: [https://aistudio.google.com/app/apikey](https://aistudio.google.com/app/apikey)
 
-4. **Start the development server:**
+4. **Start the development server**
 
    ```bash
    npm run dev
    ```
 
-5. **Open your browser:**
-   Navigate to `http://localhost:5173`
+5. **Open your browser**
+
+   Navigate to [http://localhost:5173](http://localhost:5173)
 
 ---
 
@@ -104,43 +166,49 @@ InterviewFlow is a comprehensive interview preparation platform that helps users
 src/
 ├── components/
 │   ├── auth/
-│   │   ├── AuthForm.jsx          # Login/signup form component
+│   │   ├── AuthForm.jsx          # Login/signup form
 │   │   └── AuthModal.jsx         # Modal wrapper for auth form
 │   ├── cards/
-│   │   ├── QuestionCard.jsx      # Individual question display
+│   │   ├── QuestionCard.jsx      # Single question display
 │   │   └── RoleCard.jsx          # Role selection card
 │   ├── chat/
 │   │   └── ChatWidget.jsx        # AI chatbot interface
 │   └── layout/
-│       ├── Header.jsx            # Navigation header
 │       ├── Footer.jsx            # Page footer
-│       └── Layout.jsx            # Main layout wrapper
+│       ├── Header.jsx            # Navigation header
+│       └── Layout.jsx            # Root layout wrapper
 ├── context/
-│   ├── AuthContext.jsx           # Authentication state management
-│   ├── ChatContext.jsx           # Chatbot state and AI integration
+│   ├── AuthContext.jsx           # Authentication state
+│   ├── ChatContext.jsx           # Chatbot state & Gemini integration
 │   └── InterviewContext.jsx      # Interview session management
 ├── data/
-│   └── questions.js              # Interview questions database
+│   ├── blogPosts.js              # Blog post content
+│   ├── challenges.js             # Daily challenges data
+│   └── questions.js              # Interview question bank
 ├── pages/
-│   ├── HomePage.jsx              # Landing/dashboard page
-│   ├── RolesPage.jsx             # Role selection page
-│   ├── QuestionsPage.jsx         # Interview practice page
-│   ├── SummaryPage.jsx           # Results and review page
-│   ├── BlogPage.jsx              # Blog articles listing
-│   ├── FAQPage.jsx               # Frequently asked questions
-│   └── ContactPage.jsx           # Team contact information
-├── utils/
-│   └── questionHelper.js         # Question data utilities
+│   ├── BlogPage.jsx              # Blog listing
+│   ├── BlogPostPage.jsx          # Individual blog post
+│   ├── ChallengesPage.jsx        # Daily challenges browser
+│   ├── ContactUsPage.jsx         # Team contact info
+│   ├── FAQsPage.jsx              # FAQ accordion
+│   ├── HomePage.jsx              # Dashboard / landing page
+│   ├── QuestionsPage.jsx         # Interview practice session
+│   ├── RolesPage.jsx             # Role selection
+│   └── SummaryPage.jsx           # Results & review
 ├── tests/
 │   ├── setup.js
-│   ├── components
-│       └── QuestionCard.test.jsx 
-│   ├── pages
-│       └── QuestionsPage.test.jsx 
-│   └── utils
-│       └── questionHelper.test.jsx           
-├── App.jsx                       # Main application component
-├── Index.jsx                     # Main CSS file
+│   ├── components/
+│   │   └── QuestionCard.test.jsx
+│   ├── pages/
+│   │   ├── BlogPage.test.jsx
+│   │   ├── BlogPostPage.test.jsx
+│   │   └── QuestionsPage.test.jsx
+│   └── utils/
+│       └── questionHelpers.test.js
+├── utils/
+│   └── questionHelper.js         # Question data utilities
+├── App.jsx                       # Root component & route definitions
+├── index.css                     # Global styles
 └── main.jsx                      # Application entry point
 ```
 
@@ -150,85 +218,61 @@ src/
 
 ### Authentication System
 
-InterviewFlow uses a localStorage-based authentication system for session management. This is suitable for development and prototyping.
+**Location:** `src/context/AuthContext.jsx`, `src/components/auth/`
 
-#### Implementation Details
-
-**Location:** `src/context/AuthContext.jsx`
-
-**Key Features:**
-- Email and password signup
-- User login with validation
-- Session persistence across browser sessions
-- Automatic logout functionality
-- Protected routes for authenticated users
+InterviewFlow uses a localStorage-based authentication system suitable for development and prototyping. The auth flow is triggered from the header and presented inside a modal overlay.
 
 **User Flow:**
-1. User clicks "Sign In" button in header
-2. Modal appears with login/signup form
+
+1. User clicks **Sign In** in the header
+2. A modal appears with a toggle between Login and Sign Up
 3. User enters credentials (password minimum 6 characters)
-4. On success, session is saved to localStorage
-5. User gains access to practice sessions and dashboard
+4. On success, the session is persisted to localStorage and the modal closes
+5. Authenticated users gain access to practice sessions and the personalised dashboard
 
-**Data Storage:**
-- User sessions: `localStorage.getItem('interview_prep_user')`
-- User database: `localStorage.getItem('interview_prep_users_db')`
+**Storage Keys:**
 
-**Security Note:**
-This implementation stores passwords in plain text for development purposes only. Production deployment requires:
-- Backend authentication server
-- Password hashing (bcrypt/argon2)
-- JWT or session tokens
-- HTTPS enforcement
+| Key                       | Contents                |
+| ------------------------- | ----------------------- |
+| `interview_prep_user`     | Current active session  |
+| `interview_prep_users_db` | Registered user records |
+
+> **Security Note:** Passwords are stored in plain text for development only. A production deployment must use a backend auth server, bcrypt/argon2 password hashing, JWT or session tokens, and HTTPS.
 
 ---
 
 ### Interview Practice Flow
 
-The interview practice system guides users through role-specific questions with progress tracking and instant feedback.
+**Location:** `src/context/InterviewContext.jsx`, `src/pages/QuestionsPage.jsx`
 
-#### Workflow
+**1. Role Selection** - `/roles`
 
-**1. Role Selection** (`/roles`)
-- User browses available job roles
-- Each role displays focus area and question count
-- Clicking a role starts a new interview session
+Users browse all available job roles. Each `RoleCard` displays the role name and focus area. Clicking a card navigates to that role's practice session.
 
-**2. Practice Session** (`/questions/:role`)
-- System randomly selects 20 questions from role's question pool
-- User answers one question at a time
-- Progress bar shows completion percentage
-- Navigation buttons (Previous/Next) allow review
-- Questions cannot be skipped (answer required to proceed)
+**2. Practice Session** - `/questions/:role`
 
-**3. Results Summary** (`/summary`)
-- Displays final score as percentage
-- Shows correct vs incorrect breakdown
-- Time taken to complete session
-- Detailed question review with explanations
-- Options to retry same role or select new role
+- 20 questions are randomly selected from the role's question pool on each session start
+- One question is displayed at a time with A-D options
+- A progress bar shows completion percentage
+- Answered questions can be reviewed with Previous/Next navigation
+- Selecting an answer on the final question triggers `finishInterview()` and redirects to the summary
 
-#### Question Structure
+**3. Results Summary** - `/summary`
 
-Each question contains:
-- `id`: Unique identifier
-- `question`: Question text
-- `options`: Object with A, B, C, D choices
-- `answer`: Correct answer letter
-- `rationale`: Explanation of correct answer
+- Percentage score displayed prominently
+- Correct / incorrect / time breakdown
+- Full question-by-question review with the user's choice, the correct answer, and a written explanation
+- Options to retry the same role or pick a new one
 
-#### State Management
+**Session Data Shape:**
 
-**Location:** `src/context/InterviewContext.jsx`
-
-**Session Data:**
 ```javascript
 {
   role: "Frontend Developer",
-  questions: [...],
+  questions: [...],           // 20 randomly selected questions
   answers: { questionId: "A" },
-  startTime: "2026-02-12T10:00:00",
-  endTime: "2026-02-12T10:15:00",
+  startTime: "2026-02-12T10:00:00.000Z",
+  endTime: "2026-02-12T10:15:00.000Z",
   score: {
     correct: 17,
     incorrect: 3,
@@ -239,140 +283,135 @@ Each question contains:
 }
 ```
 
-**Key Functions:**
-- `startInterview(role, questions)` - Initialize new session
-- `saveAnswer(questionId, answer)` - Record user's answer
-- `finishInterview()` - Calculate score and mark complete
-- `resetInterview()` - Clear session for new attempt
+**Key Context Functions:**
+
+| Function                          | Purpose                                     |
+| --------------------------------- | ------------------------------------------- |
+| `startInterview(role, questions)` | Initialise session with random question set |
+| `saveAnswer(questionId, answer)`  | Record user's selected option               |
+| `finishInterview()`               | Calculate score and mark session complete   |
+| `resetInterview()`                | Clear session for a new attempt             |
+| `isAnswerCorrect(questionId)`     | Check if a specific answer was correct      |
+| `getRecentSessions(limit)`        | Retrieve last N sessions from history       |
+
+**Adding Questions:**
+
+Edit `src/data/questions.js` using this structure:
+
+```javascript
+{
+  role: "Role Name",
+  focus: "Brief description of the role focus",
+  flashcards: [
+    {
+      id: 1,
+      question: "Your question text?",
+      options: {
+        A: "Option A",
+        B: "Option B",
+        C: "Option C",
+        D: "Option D"
+      },
+      answer: "B",
+      rationale: "Explanation of why B is correct."
+    }
+  ]
+}
+```
+
+---
+
+### Daily Challenges
+
+**Location:** `src/data/challenges.js`, `src/pages/ChallengesPage.jsx`
+
+A filterable library of interview challenges displayed on the `/challenges` route and surfaced as a widget on the authenticated home dashboard.
+
+**Filters available:**
+
+- **Type** - Behavioral or Technical
+- **Difficulty** - Easy, Medium, Hard
+- **Category** - Dynamic list derived from challenge data
+
+Each `ChallengeCard` shows the challenge prompt, type, difficulty, estimated time, and an expandable expert tip. The dashboard widget selects a random daily challenge via `getRandomChallenge()`.
 
 ---
 
 ### AI Chatbot Assistant
 
-An intelligent chatbot powered by Google Gemini AI that provides navigation help and question hints without revealing answers.
-
-#### Features
-
-**Navigation Assistance:**
-- Explains how to use platform features
-- Guides users to specific pages
-- Answers general platform questions
-
-**Question Hints:**
-- Provides frameworks (e.g., STAR method)
-- Suggests concepts to consider
-- Never reveals direct answers (A, B, C, or D)
-- Asks for question number when context needed
-
-**Technical Implementation:**
-
 **Location:** `src/context/ChatContext.jsx`, `src/components/chat/ChatWidget.jsx`
 
-**AI Configuration:**
-- Model: Gemini Flash 1.5
-- Free tier: 15 requests/minute, 1,500/day
-- Client-side rate limiting: 10 messages/minute
-- Context-aware system prompts
+A floating chat widget powered by **Google Gemini** that provides contextual assistance without spoiling answers.
 
-**Chat Features:**
-- Floating button in bottom-right corner
-- Persistent chat history across pages
-- Typing indicator during AI generation
-- Copy button for chatbot messages
-- Clear chat history option
-- Auto-clears on user logout
-- Mobile responsive design
+**What it does:**
 
-**System Prompt Strategy:**
+- Explains how to navigate and use platform features
+- Provides question hints using frameworks (STAR method, etc.)
+- Asks for the question number if not specified
+- **Never reveals the correct answer (A, B, C, or D)**
 
-The chatbot receives context about:
-- Current page/route
-- User authentication status
-- Active interview session details
-- All questions in current session (without answers)
+**Technical Details:**
 
-Example interactions:
+| Setting                | Value                                              |
+| ---------------------- | -------------------------------------------------- |
+| Model                  | Gemini Flash                                       |
+| Free tier limits       | 15 req/min, 1,500/day                              |
+| Client-side rate limit | 50 messages/minute                                 |
+| Chat history storage   | `localStorage` (key: `interviewflow_chat_history`) |
 
-```
-User: "How do I start practicing?"
-Bot: "Navigate to the Roles page and select a job role that matches 
-your career goals. Once selected, you'll begin answering tailored 
-interview questions for that position."
+**Context-Awareness:**
 
-User: "Help with question 3"
-Bot: "For this question, consider which approach maximizes business 
-value for the customer. Think about the Product Owner's primary 
-responsibility in value delivery."
-```
+The system prompt is dynamically constructed on each message and includes the current route, authentication status, and - on the questions page - all question texts (without answers) so the AI can give informed hints.
 
 **Error Handling:**
-- Rate limit exceeded: "Please wait a moment before sending another message..."
-- API quota reached: "The chatbot is sleeping right now. Please try again later."
-- Network errors: "I'm currently unavailable. Please try again later."
 
-**Rate Limiting:**
-- Tracks message timestamps in client
-- Prevents spam and API abuse
-- User-friendly throttle messages
+| Scenario              | User-facing message                                       |
+| --------------------- | --------------------------------------------------------- |
+| Rate limit exceeded   | "Please wait a moment before sending another message..."  |
+| API quota reached     | "I've reached my daily limit. Please try again tomorrow." |
+| Network / other error | "I'm currently unavailable. Please try again later."      |
+
+**UI Features:**
+
+- Floating button (bottom-right) with a live activity pulse indicator
+- Typing indicator (bouncing dots) while waiting for a response
+- Copy button on assistant messages
+- Clear chat history option
+- Auto-clears on logout
+- Fully responsive on mobile
 
 ---
 
 ### Content Pages
 
-#### Blog Page (`/blog`)
+#### Blog - `/blog`
 
-Displays interview preparation articles with categories, authors, and read times.
+Rendered from `src/data/blogPosts.js`. Each post card displays a cover image, title (linked to the full post), publication date, author, and summary. Individual posts render at `/blog/:slug` using `react-markdown` with GitHub Flavored Markdown support.
 
-#### FAQ Page (`/faq`)
+#### Daily Challenges - `/challenges`
 
-Accordion-style frequently asked questions organized by category.
+See [Daily Challenges](#daily-challenges) above.
 
-**Categories:**
-- Getting Started (account creation, platform basics)
-- Platform Usage (practice sessions, scoring, features)
-- Interview Tips (STAR method, preparation strategies)
-- Support (troubleshooting, contact information)
+#### FAQ - `/faq`
 
-**Features:**
-- Expandable/collapsible accordion
+Accordion-style page with 12 common questions covering platform basics, practice sessions, scoring, tips, and support. Only one item is expanded at a time.
 
-#### Contact Page (`/contact`)
+#### Contact - `/contact-us`
 
-Team member information and contact methods.
-
-**Features:**
-- Team member cards
-- GitHub and LinkedIn links
-- General contact email
-- Professional presentation
+Team member cards with gradient header blocks, name, role, and GitHub / LinkedIn icon links. Includes a general contact section.
 
 ---
 
 ## Environment Configuration
 
-### Required Variables
-
-Create a `.env` file in the project root:
+Create a `.env` file in the project root (use `.env.example` as a template):
 
 ```env
-# Gemini AI API Key
+# Required - Google Gemini AI
 VITE_GEMINI_API_KEY=your_gemini_api_key_here
 ```
 
-### Getting API Keys
-
-**Gemini API Key:**
-1. Visit https://aistudio.google.com/app/apikey
-2. Sign in with Google account
-3. Click "Create API Key"
-4. Copy the generated key
-5. Add to `.env` file
-
-**Important:**
-- Never commit `.env` to version control
-- Each team member needs their own API key
-- `.env` is gitignored by default
-- Use `.env.example` as template for team
+> **Important:** Never commit `.env` to version control. The file is gitignored by default. Each developer needs their own API key.
 
 ---
 
@@ -381,90 +420,45 @@ VITE_GEMINI_API_KEY=your_gemini_api_key_here
 ### Available Scripts
 
 ```bash
-# Start development server
-npm run dev
-
-# Build for production
-npm run build
-
-# Preview production build
-npm run preview
-
-# Run tests
-npm run test
-
-# Run tests with coverage
-npm run test:coverage
-
-# Lint code
-npm run lint
+npm run dev          # Start development server (http://localhost:5173)
+npm run build        # Production build → dist/
+npm run preview      # Preview production build locally
+npm run test         # Run test suite
+npm run lint         # Run ESLint
 ```
 
-### Code Style
+### Code Conventions
 
-- Follow React best practices
-- Use functional components with hooks
-- Implement PropTypes for type checking
-- Use Tailwind utility classes for styling
-- Keep components focused and reusable
-
-### State Management
-
-Global state is managed through React Context API:
-- **AuthContext:** User authentication state
-- **InterviewContext:** Interview session data
-- **ChatContext:** Chatbot messages and AI integration
-
-### Adding New Questions
-
-Edit `src/data/questions.js`:
-
-```javascript
-{
-  role: "New Role Name",
-  focus: "Role description",
-  flashcards: [
-    {
-      id: 1,
-      question: "Question text?",
-      options: {
-        A: "Option A",
-        B: "Option B",
-        C: "Option C",
-        D: "Option D"
-      },
-      answer: "B",
-      rationale: "Explanation of correct answer"
-    }
-  ]
-}
-```
+- Functional components with hooks throughout
+- Global state via React Context API (no external state library)
+- Tailwind utility classes for all styling
+- PropTypes for runtime type checking on components
+- Component files co-located with their concerns
 
 ---
 
 ## Testing
 
-Tests are written using Vitest and React Testing Library.
-
-### Running Tests
+Tests are written with **Vitest** and **React Testing Library**, following the philosophy of testing user behaviour rather than implementation details.
 
 ```bash
-# Run all tests
-npm run test
-
-# Run tests in watch mode
-npm run test:watch
-
-# Generate coverage report
-npm run test:coverage
+npm run test             # Run all tests
+npm run test -- --watch  # Watch mode
 ```
 
-### Testing Guidelines
+**Current test coverage:**
 
-- Test user interactions, not implementation
-- Focus on component behavior
-- Mock external dependencies (API calls, localStorage)
-- Aim for high coverage on critical paths
+| Area              | File                                     |
+| ----------------- | ---------------------------------------- |
+| Utility functions | `tests/utils/questionHelper.test.jsx`    |
+| Question display  | `tests/components/QuestionCard.test.jsx` |
+| Practice page     | `tests/pages/QuestionsPage.test.jsx`     |
+
+**Testing Guidelines:**
+
+- Mock `localStorage` and external API calls
+- Test from the user's perspective (interactions and visible output)
+- Prioritise critical paths: question flow, answer selection, score calculation
 
 Reference: [Robin Wieruch's Vitest + RTL guide](https://www.robinwieruch.de/vitest-react-testing-library/)
 
@@ -472,74 +466,37 @@ Reference: [Robin Wieruch's Vitest + RTL guide](https://www.robinwieruch.de/vite
 
 ## Deployment
 
-### Vercel Deployment
+The project is deployed on **Vercel**.
 
-1. Push code to GitHub
-2. Sign up at https://vercel.com
-3. Import repository
-4. Configure build settings:
-   - Framework: Vite
-   - Build Command: `npm run build`
-   - Output Directory: `dist`
-5. Add environment variables in Vercel dashboard:
+### Deploy Your Own
+
+1. Push your fork to GitHub
+2. Sign up at [vercel.com](https://vercel.com) and import the repository
+3. Configure build settings:
+   - **Framework Preset:** Vite
+   - **Build Command:** `npm run build`
+   - **Output Directory:** `dist`
+4. Add environment variables in **Project Settings → Environment Variables:**
    - `VITE_GEMINI_API_KEY`
-6. Deploy
-
-### Environment Variables in Production
-
-Add all environment variables in your deployment platform's settings:
-- Vercel: Project Settings > Environment Variables
-- Netlify: Site Settings > Build & Deploy > Environment
+5. Deploy — Vercel handles CI/CD automatically on every push to `main`
 
 ---
 
-## Team Documents
+## Team
 
-- [Team Project Ideas](./docs/team_project_ideas.md)
-- [Team Decision Log](./docs/team_decision_log.md)
+Built with 💛 by the Chingu Voyage 59 Tier 2 Team 22:
 
-### Meeting Templates
-
-Located in `/docs` directory:
-- `meeting-voyage_kickoff.docx`
-- `meeting-vision_and_feature_planning.docx`
-- `meeting-sprint_retrospective_review_and_planning.docx`
-- `meeting-sprint_open_topic_session.docx`
+| Name                 | Role          | GitHub                                              | LinkedIn                                                     |
+| -------------------- | ------------- | --------------------------------------------------- | ------------------------------------------------------------ |
+| Ogechi Ogharandukun  | Scrum Master  | [Mide02-Project](https://github.com/Mide02-Project) | [LinkedIn](https://www.linkedin.com/in/ogechi-ogharandukun/) |
+| Peter Kabamba        | Web Developer | [Pietrols](https://github.com/Pietrols)             | [LinkedIn](https://linkedin.com/in/peter-kabamba-959a061b9)  |
+| Lawrence Narh-Lawson | Web Developer | [lawlawson](https://github.com/lawlawson)           | [LinkedIn](https://www.linkedin.com/in/lawlawson/)           |
 
 ---
 
-## Our Team
+## Acknowledgements
 
-- Ogechi Ogharandukun: [GitHub](https://github.com/Mide02-Project) / [LinkedIn](http://www.linkedin.com/in/Ogechi-Ogharandukun)
-- Peter Kabamba: [GitHub](https://github.com/Pietrols) / [LinkedIn](https://linkedin.com/in/peter-kabamba-959a061b9)
-- Lawrence Narh-Lawson: [GitHub](https://github.com/lawlawson) / [LinkedIn](https://www.linkedin.com/in/lawlawson/)
-
----
-
-## Contributing
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
----
-
-## License
-
-This project is part of Chingu Voyage 59. All rights reserved to the team members.
-
----
-
-## Acknowledgments
-
-- Chingu for providing the collaborative learning platform
-- Google for providing free Gemini API access
-- All team members for their contributions and dedication
-
----
-
-## Contact
-
-For questions or feedback, visit our [Contact Page](./src/pages/ContactPage.jsx) or reach out to any team member via GitHub or LinkedIn.
+- [Chingu](https://www.chingu.io/) for the collaborative learning voyage structure
+- [Google AI Studio](https://aistudio.google.com/) for the free Gemini API tier
+- [Robin Wieruch](https://www.robinwieruch.de/) for the Vitest + RTL testing guide
+- All open-source libraries that made this possible
